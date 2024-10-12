@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MealBD</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: "rgb(255, 193, 7)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <header class="max-w-screen-xl mx-auto px-4 py-4">
+      <nav class="flex justify-between items-center">
+        <h2 class="font-bold text-2xl">Tasty HUT</h2>
+        <button class="btn bg-main">Sign Up</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="bg-[url('images/banner_1.png')] bg-no-repeat bg-cover bg-center py-40">
+        <div class="lg:max-w-2xl mx-auto">
+          <h1 class="text-white font-extrabold text-center text-4xl">
+            Taste Our Delicious Best Foods
+          </h1>
+          <p class="text-center text-white mt-6">
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, by injected humou.
+          </p>
+  
+          <div class="flex px-4 mt-8">
+            <input type="text" class="input input-border w-full" />
+            <button class="btn bg-main">Search</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-screen-xl mx-auto px-4 mt-16 md:mt-28">
+        <h3 class="text-center font-semibold text-3xl">Your Favourite Food</h3>
+
+        <div id="loader" class="mt-12 flex justify-center items-center py-20">
+          <div class="loader"></div>
+        </div>
+        <div id="container" class="hidden lg:grid-cols-2 flex-col gap-6 mt-12"></div>
+
+        <div id="btnContainer" class="text-center hidden mt-8">
+          <button class="btn bg-main">See All</button>
+        </div>
+      </section>
+
+      <section>
+        <dialog id="modal" class="modal">
+          <div class="modal-box w-11/12 max-w-3xl">
+            <h2 id="name" class="font-bold text-3xl"></h2>
+            <div class="divider my-5"></div>
+            <div class="mb-10">
+              <img id="modal-img" class="w-full aspect-video object-cover"/>
+            </div>
+            <div class="space-y-5">
+              <h3 class="text-lg font-bold">
+                <span class="font-semibold text-xl">Category: </span>
+                <span class="font-normal" id="category"></span>
+              </h3>
+              <h3 class="text-lg font-bold">
+                <span class="font-semibold text-xl">Area: </span>
+                <span class="font-normal" id="area"></span>
+              </h3>
+              <h3 class="text-lg font-bold">
+                <span class="font-semibold text-xl">Instructions: </span>
+                <span class="font-normal" id="instruction"></span>
+              </h3>
+              <h3 class="text-lg font-bold">
+                <span class="font-semibold text-xl">Youtube: </span>
+                <a class="font-normal" id="yt"></a>
+              </h3>
+            </div>
+
+            <div class="modal-action">
+              <form method="dialog">
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </section>
+    </main>
+
+    <footer class="flex justify-between bg-base-200 text-base-content p-10 max-w-screen-xl mx-auto px-4 mt-10">
+      <nav class="flex flex-col">
+        <h6 class="footer-title">Services</h6>
+        <a class="link link-hover">Branding</a>
+        <a class="link link-hover">Design</a>
+        <a class="link link-hover">Marketing</a>
+        <a class="link link-hover">Advertisement</a>
+      </nav>
+      <nav class="flex flex-col">
+        <h6 class="footer-title">Company</h6>
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Contact</a>
+        <a class="link link-hover">Jobs</a>
+        <a class="link link-hover">Press kit</a>
+      </nav>
+      <nav class="flex flex-col">
+        <h6 class="footer-title">Legal</h6>
+        <a class="link link-hover">Terms of use</a>
+        <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover">Cookie policy</a>
+      </nav>
+      <form>
+        <h6 class="footer-title">Newsletter</h6>
+        <fieldset class="form-control w-80">
+          <label class="label">
+            <span class="label-text">Enter your email address</span>
+          </label>
+          <div class="join">
+            <input
+              type="text"
+              placeholder="username@site.com"
+              class="input input-bordered join-item" />
+            <button class="btn bg-main join-item">Subscribe</button>
+          </div>
+        </fieldset>
+      </form>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
