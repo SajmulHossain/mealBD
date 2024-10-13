@@ -1,10 +1,19 @@
-async function dataFetch() {
+async function dataFetch(value) {
   const response = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/search.php?s=chicken"
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=${value || 'chicken'}`
   );
   const data = await response.json();
 
   showData(data.meals);
+}
+
+function searchFunction() {
+  const searchBox = document.getElementById('search');
+  const searchBtn = document.getElementById('searchBtn');
+
+  searchBtn.addEventListener('click', function() {
+    dataFetch(searchBox.value);
+  })
 }
 
 function showData(data) {
@@ -28,6 +37,8 @@ function showData(data) {
 
 function showAll(data, index, btn) {
   const loader = document.getElementById("loader");
+  loader.classList.remove('hidden');
+  loader.classList.add('flex');
   const container = document.getElementById("container");
   container.innerHTML = "";
 
@@ -35,10 +46,17 @@ function showAll(data, index, btn) {
     container.classList.remove("hidden");
     container.classList.add('flex','lg:grid');
     loader.classList.add("hidden");
+    loader.classList.remove('flex');
     btn.classList.remove("hidden");
   }, 2000);
 
+  
   const length = data.length;
+if(length <= 6) {
+  btn.classList.add('hidden')
+} else {
+  // btn.classList.remove('hidden')
+}
   for (let i = 0; i < length; i++) {
     if (i === index) {
       break;
@@ -54,7 +72,7 @@ function showAll(data, index, btn) {
           </div>
   
           <div class="flex flex-col gap-6 w-full">
-            <h4 class="font-bold text-2xl">Chicken Handi</h4>
+            <h4 class="font-bold text-2xl">${strMeal}</h4>
             <p>There are many variations of passages of available, but majority have suffered</p>
             <div>
               <button onclick= "showDetails('${strMealThumb}','${strCategory}', '${strArea}',\`${strInstructions}\`, '${strYoutube}','${strMeal}' )" class="underline text-main font-semibold">View Details</button>
@@ -79,3 +97,4 @@ function showDetails(img,category, area, instruction, youtube,meal) {
 }
 
 dataFetch();
+searchFunction();

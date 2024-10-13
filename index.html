@@ -43,8 +43,8 @@
           </p>
   
           <div class="flex px-4 mt-8">
-            <input type="text" class="input input-border w-full" />
-            <button class="btn bg-main">Search</button>
+            <input id="search" type="text" class="input input-border w-full" />
+            <button id="searchBtn" class="btn bg-main">Search</button>
           </div>
         </div>
       </section>
@@ -52,7 +52,7 @@
       <section class="max-w-screen-xl mx-auto px-4 mt-16 md:mt-28">
         <h3 class="text-center font-semibold text-3xl">Your Favourite Food</h3>
 
-        <div id="loader" class="mt-12 flex justify-center items-center py-20">
+        <div id="loader" class="hidden mt-12 justify-center items-center py-20">
           <div class="loader"></div>
         </div>
         <div id="container" class="hidden lg:grid-cols-2 flex-col gap-6 mt-12"></div>
@@ -99,7 +99,7 @@
       </section>
     </main>
 
-    <footer class="flex justify-between bg-base-200 text-base-content p-10 max-w-screen-xl mx-auto px-4 mt-10">
+    <footer class="flex flex-col gap-5 lg:gap-0 lg:flex-row lg:justify-between bg-base-200 text-base-content p-10 max-w-screen-xl mx-auto px-4 mt-10">
       <nav class="flex flex-col">
         <h6 class="footer-title">Services</h6>
         <a class="link link-hover">Branding</a>
